@@ -1,0 +1,26 @@
+name: Hive Random Voter
+
+on:
+  schedule:
+    - cron: '21 * * * *' # Runs at 21 mins past each hour
+  workflow_dispatch:     # Allows manual execution from GitHub UI
+
+jobs:
+  vote:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run random voter script
+        env:
+          AAFENG_HIVE_POSTING_KEY: ${{ secrets.AAFENG_HIVE_POSTING_KEY }}
+        run: node index.js
