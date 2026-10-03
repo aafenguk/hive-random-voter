@@ -2,7 +2,7 @@ name: Hive Random Voter
 
 on:
   schedule:
-    - cron: '21 * * * *' # Runs at 21 mins past each hour
+    - cron: '21,51 * * * *' # Runs at 21 mins past each hour
   workflow_dispatch:     # Allows manual execution from GitHub UI
 
 jobs:
