@@ -24,3 +24,4 @@ jobs:
         env:
           AAFENG_HIVE_POSTING_KEY: ${{ secrets.AAFENG_HIVE_POSTING_KEY }}
         run: node index.js
+        
